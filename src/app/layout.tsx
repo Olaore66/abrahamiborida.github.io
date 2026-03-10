@@ -18,7 +18,7 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   title: "Abraham Iborida - Software Engineer",
   description:
-    "Portfolio of Abraham Iborida, a Mobile & Backend Software Engineer specializing in fintech mobile apps and scalable backend APIs using Flutter and Spring Boot.",
+    "Portfolio of Abraham Iborida, a Mobile & Backend Software Engineer specializing in fintech mobile apps and scalable backend APIs using Flutter, React Native, and Spring Boot.",
   openGraph: {
     title: "Abraham Iborida - Software Engineer",
     description: "I build fintech mobile apps and scalable backend APIs.",

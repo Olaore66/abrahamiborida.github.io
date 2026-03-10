@@ -47,7 +47,7 @@ export function Hero() {
                     transition={{ duration: 0.5, delay: 0.2 }}
                     className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-2xl mx-auto"
                 >
-                    I build fintech mobile apps and scalable backend APIs using Flutter and Spring Boot.
+                    I build fintech mobile apps and scalable backend APIs using Flutter, React Native, and Spring Boot.
                 </motion.p>
 
                 <motion.div
