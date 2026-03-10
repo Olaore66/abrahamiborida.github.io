@@ -8,11 +8,10 @@ import Link from "next/link";
 export function Hero() {
     return (
         <section className="relative min-h-[calc(100vh-4rem)] flex items-center justify-center overflow-hidden py-20 px-4 sm:px-6 lg:px-8">
-            {/* Background decoration */}
             <div className="absolute inset-0 w-full h-full bg-background z-[-1]">
-                <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-blue-500/30 rounded-full blur-[120px] mix-blend-multiply dark:mix-blend-screen animate-blob" />
-                <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-indigo-500/30 rounded-full blur-[120px] mix-blend-multiply dark:mix-blend-screen animate-blob animation-delay-2000" />
-                <div className="absolute bottom-1/4 left-1/3 w-[700px] h-[700px] bg-cyan-500/20 rounded-full blur-[120px] mix-blend-multiply dark:mix-blend-screen animate-blob animation-delay-4000" />
+                <div className="absolute top-0 left-1/4 w-full max-w-[600px] aspect-square bg-blue-500/30 rounded-full blur-[120px] mix-blend-multiply dark:mix-blend-screen animate-blob" />
+                <div className="absolute top-1/4 right-1/4 w-full max-w-[500px] aspect-square bg-indigo-500/30 rounded-full blur-[120px] mix-blend-multiply dark:mix-blend-screen animate-blob animation-delay-2000" />
+                <div className="absolute bottom-1/4 left-1/3 w-full max-w-[700px] aspect-square bg-cyan-500/20 rounded-full blur-[120px] mix-blend-multiply dark:mix-blend-screen animate-blob animation-delay-4000" />
             </div>
 
             <div className="max-w-4xl mx-auto text-center z-10">
