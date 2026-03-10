@@ -36,7 +36,7 @@ export function About() {
                     <p>
                         My core expertise lies in architecting mobile banking systems that are
                         both scalable and highly secure. I have a proven track record of creating
-                        bridge solutions—transforming legacy core banking APIs into streamlined
+                        bridge solutions, transforming legacy core banking APIs into streamlined
                         services tailored for modern mobile applications.
                     </p>
                     <p>
