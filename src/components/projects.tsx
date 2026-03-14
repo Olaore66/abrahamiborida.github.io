@@ -33,10 +33,10 @@ export function Projects() {
             tech: ["React Native", "Geolocation", "Real-time Sync", "Payment Integration"],
             media: { 
                 type: "image", 
-                src: ["/driver-app-demo.mp4", "/driver-app-demo.png", "/driver-app-demo2.png", "/driver-app-demo3.png", "/driver-app-demo4.png"]
+                src: ["https://drive.google.com/file/d/1pdGuWXCD2ZiD8K56Loe1HqAYwmxDw4vE/preview", "/driver-app-demo.png", "/driver-app-demo2.png", "/driver-app-demo3.png", "/driver-app-demo4.png"]
             },
             linkText: "Watch Live App Demo",
-            link: "/driver-app-demo.mp4"
+            link: "https://drive.google.com/file/d/1pdGuWXCD2ZiD8K56Loe1HqAYwmxDw4vE/view?usp=drive_link"
         },
         {
             title: "Cross-Border Banking Experience Layer",
@@ -55,10 +55,10 @@ export function Projects() {
             tech: ["Flutter", "Full-Stack", "State Management", "Payment Gateways"],
             media: { 
                 type: "image", 
-                src: ["/wisesmonie_vid.mp4", "/wm0.png", "/wm1.png", "/wm2.png", "/wm3.png", "/wm4.png", "/wm5.png", "/wm6.png"] 
+                src: ["https://drive.google.com/file/d/1u8QIvdDvScvlWN4aMNW9iQf4kYlWkNPm/preview", "/wm0.png", "/wm1.png", "/wm2.png", "/wm3.png", "/wm4.png", "/wm5.png", "/wm6.png"] 
             },
             linkText: "Watch Technical Demo",
-            link: "/wisesmonie_vid.mp4"
+            link: "https://drive.google.com/file/d/1u8QIvdDvScvlWN4aMNW9iQf4kYlWkNPm/view?usp=drive_link"
         },
         {
             title: "High-Concurrency Experience API Middleware",
@@ -115,10 +115,11 @@ export function Projects() {
                                             {Array.isArray(project.media.src) ? (
                                                 <div className="relative w-full h-full flex items-center justify-center">
                                                     {(project.media.src as string[]).map((imgSrc, imgIdx) => {
+                                                        const isVideoLink = imgSrc.endsWith('.mp4') || imgSrc.includes('drive.google.com') || imgSrc.includes('youtube.com') || imgSrc.includes('vimeo.com');
                                                         // Filter out videos for the preview stack to keep it clean
-                                                        if (imgSrc.endsWith('.mp4')) return null;
+                                                        if (isVideoLink) return null;
                                                         
-                                                        const isMultiple = (project.media.src as string[]).filter(s => !s.endsWith('.mp4')).length > 2;
+                                                        const isMultiple = (project.media.src as string[]).filter(s => !(s.endsWith('.mp4') || s.includes('drive.google.com') || s.includes('youtube.com') || s.includes('vimeo.com'))).length > 2;
                                                         const rotation = isMultiple ? (imgIdx - 2) * 8 : (imgIdx - 0.5) * 15;
                                                         const xOffset = isMultiple ? (imgIdx - 2) * 40 : (imgIdx - 0.5) * 60;
                                                         
@@ -239,7 +240,8 @@ export function Projects() {
                                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-4">
                                     {Array.isArray(projects[selectedProject].media.src) ? (
                                         (projects[selectedProject].media.src as string[]).map((src, i) => {
-                                            const isVideo = src.endsWith('.mp4');
+                                            const isVideo = src.endsWith('.mp4') || src.includes('drive.google.com') || src.includes('youtube.com') || src.includes('vimeo.com');
+                                            const isExternalVideo = src.includes('drive.google.com') || src.includes('youtube.com') || src.includes('vimeo.com');
                                             
                                             return (
                                                 <motion.div
@@ -250,13 +252,22 @@ export function Projects() {
                                                     className={`relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-slate-900/50 ${isVideo ? 'col-span-full aspect-video md:max-w-4xl mx-auto w-full' : 'aspect-[9/16] w-full max-w-[320px] mx-auto'}`}
                                                 >
                                                     {isVideo ? (
-                                                        <video 
-                                                            controls 
-                                                            autoPlay 
-                                                            className="w-full h-full object-contain"
-                                                        >
-                                                            <source src={src} type="video/mp4" />
-                                                        </video>
+                                                        isExternalVideo ? (
+                                                            <iframe 
+                                                                src={src} 
+                                                                className="w-full h-full border-0" 
+                                                                allow="autoplay; fullscreen" 
+                                                                allowFullScreen
+                                                            />
+                                                        ) : (
+                                                            <video 
+                                                                controls 
+                                                                autoPlay 
+                                                                className="w-full h-full object-contain"
+                                                            >
+                                                                <source src={src} type="video/mp4" />
+                                                            </video>
+                                                        )
                                                     ) : (
                                                         <Image
                                                             src={src}
